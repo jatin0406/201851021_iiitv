@@ -112,4 +112,72 @@ public class AvlTreeImplement<D> {
         System.out.println(root.value);
         InternalInorder(root.right);
     }
+
+    public void delete(D value){
+        InternalDelete(root,value);
+    }
+
+    public Node<D> InternalDelete(Node<D> root,D value){
+        if(root==null){
+            System.out.println("element not found");
+            return root;
+        }
+        if((Integer)value>(Integer)root.value){
+            root.right=InternalDelete(root.right,value);
+        }
+        else if((Integer)value<(Integer)root.value){
+            root.left=InternalDelete(root.left,value);
+        }
+        else if(value==root.value){
+            if(root.left==null&&root.right==null){
+                System.out.println("element deleted");
+                return null;
+            }
+            if(root.left==null||root.right==null){
+                if(root.left==null){
+                    root=root.right;
+                    System.out.println("element deleted");
+                    return root;
+                }
+                else if(root.right==null){
+                    root=root.left;
+                    System.out.println("element deleted");
+                    return root;
+                }
+
+            }
+            else if(root.right.height>root.left.height){
+                root=root.right;
+                System.out.println("element deleted");
+                return root;
+
+            }
+            else{
+                root=root.left;
+                System.out.println("elemetn deleted");
+                return root;
+            }
+        }
+        Integer balance=returnbalance(root);
+
+        if(balance>1 && (Integer)value<(Integer) root.left.value){
+            return RightRotation(root);
+        }
+
+        if(balance<-1 && (Integer)value>(Integer)root.right.value){
+            return LeftRotation(root);
+        }
+
+        if(balance>1 && (Integer)value>(Integer)root.left.value){
+            root.left=LeftRotation(root.left);
+            return RightRotation(root);
+        }
+        if(balance<-1 && (Integer) value<(Integer)root.right.value){
+            root.right=RightRotation(root.right);
+            return LeftRotation(root);
+        }
+        return root;
+
+    }
+
 }
