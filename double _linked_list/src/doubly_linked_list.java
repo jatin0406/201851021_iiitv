@@ -1,0 +1,3 @@
+class aniP{
+    Object
+}
