@@ -72,14 +72,13 @@ public class Implementation<D> {
         return root;
     }
 public void helper(NodeAvl iter,NodeAvl root,D value){
-<<<<<<< HEAD
+
         if(iter== null){
             return;
         }
             else if ((int) iter.value > (int) root.value) {
-=======
             if ((int) iter.value > (int) root.value) {
->>>>>>> 094df282054d6047a5d82a19d96f34bce9f0d969
+
                 if (iter.right == null && (int) root.value > (int) value) {
                     rightrotate(iter);
                 } else if (iter.right == null && (int) root.value < (int) value) {
@@ -165,12 +164,12 @@ public void helper(NodeAvl iter,NodeAvl root,D value){
     }
 
     public void print() {
-        root = Printer(root);
+        Printer(root);
     }
 
-    public NodeAvl<D> Printer(NodeAvl root) {
+    public void Printer(NodeAvl root) {
         if (root == null) {
-            return root;
+            return;
         }
         Printer(root.left);
         if (root.color == 1) {
@@ -179,7 +178,7 @@ public void helper(NodeAvl iter,NodeAvl root,D value){
             System.out.println(root.value + " " + "black");
         }
         Printer(root.right);
-        return root;
+        
     }
 
     public NodeAvl<D> parentnode(NodeAvl hello, NodeAvl node) {
