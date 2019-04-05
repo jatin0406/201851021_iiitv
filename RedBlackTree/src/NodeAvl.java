@@ -7,7 +7,7 @@ public class NodeAvl<D> {
     NodeAvl(D value){
         this.value=value;
         left=right=null;
-        color=0;
+        color=1;
 
     }
 }

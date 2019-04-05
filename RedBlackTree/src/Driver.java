@@ -11,7 +11,7 @@ public class Driver {
                 case 1:redblack.add(scan.nextInt());
                 break;
                 case 2:
-                    redblack.print();
+                    redblack.Print();
                     break;
                     default:
                         System.out.println("wrong option");
