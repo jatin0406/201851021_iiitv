@@ -3,7 +3,12 @@ public class AvlTreeImplement<D> {
     AvlTreeImplement(){
         root=null;
     }
-
+public Integer height(Node<D>root){
+if(root==null){
+return 0;
+}
+    return root.height;
+}
     public Integer maxreturn(Node<D> x,Node<D> y){
         if(x==null&&y==null){
             return 0;
@@ -34,7 +39,7 @@ public class AvlTreeImplement<D> {
         if(root==null){
             return 0;
         }
-        return returnbalance(root.left)-returnbalance(root.right);
+        return height(root.left)-height(root.right);
     }
 
 
